@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,5 +22,11 @@ class UserController extends Controller
     public function create_post(){
         $logged_user = Auth::user();
         return view('user.create-post', compact('logged_user'));
+    }
+
+    public function edit_post($post_id){
+        $post_data = Post::find($post_id);
+        $logged_user = Auth::user();
+        return view('user.edit-post', compact('logged_user', 'post_data'));
     }
 }

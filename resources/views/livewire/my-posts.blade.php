@@ -60,6 +60,7 @@
             <th scope="col">Content</th>
             <th scope="col">Posted At</th>
             <th scope="col">Last Update</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +71,10 @@
                     <td>{{$item->content}}</td>
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->updated_at}}</td>
+                    <td>
+                        <a href="/edit/post/{{$item->id}}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/delete/post/{{$item->id}}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
