@@ -28,6 +28,7 @@ class EditPost extends Component
             'content' => $this->content,
         ]);
 
+        session()->flash('message', 'The post was successfully updated!');
         return $this->redirect('/my/posts', navigate: true);
     }
 

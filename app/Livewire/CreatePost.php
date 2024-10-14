@@ -26,6 +26,7 @@ class CreatePost extends Component
         $this->post_title = '';
         $this->content = '';
 
+        session()->flash('message', 'The post was successfully created!');
         $this->redirect('/my/posts', navigate: true);
     }
 

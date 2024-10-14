@@ -1,4 +1,7 @@
 <div class="card">
+    @if (session()->has('message'))
+        <span class="alert alert-success p-2 my-2">{{ session('message') }}</span>
+    @endif
     <div class="card-body">
         <h5 class="card-title"> My Dashboard</h5>
 
@@ -73,7 +76,7 @@
                     <td>{{$item->updated_at}}</td>
                     <td>
                         <a href="/edit/post/{{$item->id}}" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="/delete/post/{{$item->id}}" class="btn btn-danger btn-sm">Delete</a>
+                        <button wire:click="destroy({{$item->id}})" wire:confirm="Are you sure you want to delete this post?" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
             @endforeach

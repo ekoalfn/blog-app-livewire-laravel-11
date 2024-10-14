@@ -18,6 +18,12 @@ class MyPosts extends Component
         $this->my_posts_count = Post::where('user_id', $user_id)->count();
     }
 
+    public function destroy($id){
+        Post::where('id', $id)->delete();
+        session()->flash('message', 'The post was successfully deleted!');
+        return $this->redirect('/my/posts', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.my-posts', [
