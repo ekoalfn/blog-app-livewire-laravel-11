@@ -9,12 +9,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Register
 Route::get('/register',[AuthController::class,'loadRegisterForm']);
 Route::post('/register/user',[AuthController::class,'registerUser'])->name('registerUser');
 
-Route::get('/login/form',[AuthController::class,'loadLoginPage']);
+//Login
+Route::get('/login',[AuthController::class,'loadLoginPage']);
 Route::post('/login/user',[AuthController::class,'LoginUser'])->name('LoginUser');
 Route::get('/logout',[AuthController::class,'LogoutUser']);
+
+//Reset password
+Route::get('/forgot/password',[AuthController::class,'forgotPassword']);
+Route::post('/forgot',[AuthController::class,'forgot'])->name('forgot');
+Route::get('/reset/password',[AuthController::class,'loadResetPassword']);
+Route::post('/reset/user/password',[AuthController::class,'ResetPassword'])->name('ResetPassword');
 
 Route::get('user/home', [UserController::class, 'index'])->middleware('user');
 Route::get('admin/home', [AdminController::class, 'index'])->middleware('admin');

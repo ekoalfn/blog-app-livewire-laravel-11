@@ -67,17 +67,17 @@ class AuthController extends Controller
                 }
                 
             }else{
-                return redirect('/login/form')->with('error','Wrong User Credentials');
+                return redirect('/login')->with('error','Wrong User Credentials');
             }
         } catch (\Exception $e) {
-            return redirect('/login/form')->with('error',$e->getMessage());
+            return redirect('/login')->with('error',$e->getMessage());
         }
     }
 
     public function LogoutUser(Request $request){
         Session::flush();
         Auth::logout();
-        return redirect('/login/form');
+        return redirect('/login');
     }
 
     public function forgotPassword(){
@@ -147,7 +147,7 @@ class AuthController extends Controller
 
             PasswordReset::where('email',$request->user_email)->delete();
 
-            return redirect('/login/form')->with('success','Password Changed Successfully');
+            return redirect('/login')->with('success','Password Changed Successfully');
         } catch (\Exception $e) {
             return back()->with('error',$e->getMessage());
         }
