@@ -12,4 +12,9 @@ class UserController extends Controller
         $logged_user = Auth::user();
         return view('user.home-page', compact('logged_user'));
     }
+
+    public function posts(){
+        $logged_user = Auth::user();
+        return view('user.my-posts', compact('logged_user'));
+    }
 }

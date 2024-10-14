@@ -25,6 +25,8 @@ Route::get('/reset/password',[AuthController::class,'loadResetPassword']);
 Route::post('/reset/user/password',[AuthController::class,'ResetPassword'])->name('ResetPassword');
 
 Route::get('user/home', [UserController::class, 'index'])->middleware('user');
+Route::get('my/posts', [UserController::class, 'posts'])->middleware('user');
+
 Route::get('admin/home', [AdminController::class, 'index'])->middleware('admin');
 
 Route::get('/404', [AuthController::class, 'load404']);
