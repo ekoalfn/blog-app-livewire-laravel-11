@@ -23,7 +23,7 @@ class CreatePost extends Component
         ]);
 
         $photo_name = md5($this->photo . microtime()).'.'.$this->photo->extension();
-        $this->photo->storeAs('public/images', $photo_name);
+        $this->photo->storeAs('images', $photo_name);
 
         Post::create([
             'post_title' => $this->post_title,

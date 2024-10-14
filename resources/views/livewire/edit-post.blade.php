@@ -26,6 +26,16 @@
                 @enderror
             </div>
             <div class="col-sm-10">
+                <label for="">post image</label>
+                <div class="form-floating mb-3">
+                    <img width="80px" src="{{ asset('storage/images/' .$post->photo) }}" alt="post image">
+                    <input type="file" class="form-control" placeholder="post details" wire:model="photo" id="">
+                </div>
+                @error('photo')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+            <div class="col-sm-10">
                 </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                     <a href="/my/posts" wire:navigate class="btn btn-secondary">Cancel</a>
