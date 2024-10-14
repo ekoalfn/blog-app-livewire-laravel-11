@@ -26,6 +26,15 @@
                 @enderror
             </div>
             <div class="col-sm-10">
+                <div class="form-floating mb-3">
+                    <input type="file" class="form-control" placeholder="post details" wire:model="photo" id="">
+                    <label for="floatingInput">Your post image</label>
+                </div>
+                @error('photo')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+            <div class="col-sm-10">
                 </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a href="/user/home" wire:navigate class="btn btn-secondary">cancel</a>
