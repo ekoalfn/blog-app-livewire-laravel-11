@@ -26,6 +26,7 @@ Route::post('/reset/user/password',[AuthController::class,'ResetPassword'])->nam
 
 Route::get('user/home', [UserController::class, 'index'])->middleware('user');
 Route::get('my/posts', [UserController::class, 'posts'])->middleware('user');
+Route::get('create/post', [UserController::class, 'create_post'])->middleware('user');
 
 Route::get('admin/home', [AdminController::class, 'index'])->middleware('admin');
 
