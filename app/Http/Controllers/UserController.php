@@ -29,4 +29,13 @@ class UserController extends Controller
         $logged_user = Auth::user();
         return view('user.edit-post', compact('logged_user', 'post_data'));
     }
+
+    public function post_detail($post_id){
+        $logged_user = Auth::user();
+        $post_data = Post::join('users','users.id','=','posts.user_id')
+                        ->where('posts.id',$post_id)
+                        ->first(['users.name','posts.*']);
+
+        return view('user.post-detail',compact('logged_user','post_data'));
+    }
 }
