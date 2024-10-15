@@ -14,6 +14,7 @@
                                     <span class="text-muted mx-3 text-capitalize my-1"> {{$post_data->name}}</span>
                                 </a>
                             </div>
+                            <livewire:like-component :postId="$post_data->id" />
                         </div>
                         <h2 class="text-primary">{{$post_data->post_title}}</h2>
                         <p>{{$post_data->content}}</p>

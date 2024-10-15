@@ -7,7 +7,7 @@
                     <h5 class="card-title">{{ $post->post_title }}</h5>
                     <p>
                         {{ str($post->content)->words(10) }}
-                        <a href="/view/post/{{ $post->id }}" wire:navigate wire:click="addViewers({{ $post->id }})" class="card-link">Read more</a>
+                        <a href="/view/post/{{ $post->id }}" wire:navigate class="card-link">Read more</a>
                     </p>
                 </div>
                 <div class="card-footer">
