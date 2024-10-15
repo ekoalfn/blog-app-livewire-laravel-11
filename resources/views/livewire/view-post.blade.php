@@ -14,7 +14,8 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">{{ date('d-m-Y h:i', strtotime($post->created_at)) }}</small>
+                    <span class="text-muted mx-3 text-capitalize"> {{$post->name}}</span>
+                    <livewire:follow-component :followedId="$post->followedId" /> 
                 </div>
             </div>
         </div>
