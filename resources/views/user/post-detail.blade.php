@@ -20,6 +20,7 @@
                         <p>{{$post_data->content}}</p>
                         <hr>
                         <h6 class="card-title">Leave a comment</h6>
+                        <livewire:post-comment :postId="$post_data->id"/>
                     </div>
                 </div>
             </div>
