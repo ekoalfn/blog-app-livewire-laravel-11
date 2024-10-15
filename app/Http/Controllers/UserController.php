@@ -38,4 +38,9 @@ class UserController extends Controller
 
         return view('user.post-detail',compact('logged_user','post_data'));
     }
+
+    public function profile(){
+        $logged_user = Auth::user();
+        return view('user.user-profile',compact('logged_user'));
+    }
 }

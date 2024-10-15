@@ -29,6 +29,7 @@ Route::get('my/posts', [UserController::class, 'posts'])->middleware('user');
 Route::get('create/post', [UserController::class, 'create_post'])->middleware('user');
 Route::get('edit/post/{post_id}', [UserController::class, 'edit_post'])->middleware('user');
 Route::get('/view/post/{id}',[UserController::class,'post_detail'])->middleware('user');
+Route::get('/profile',[UserController::class,'profile'])->middleware('user');
 
 Route::get('admin/home', [AdminController::class, 'index'])->middleware('admin');
 
