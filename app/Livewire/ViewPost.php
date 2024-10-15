@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use App\Models\PostViewers;
 
 class ViewPost extends Component
 {
@@ -14,6 +15,13 @@ class ViewPost extends Component
     {
         $this->posts = Post::join('users','users.id','=','posts.user_id')->orderBy('created_at','desc')
                                 ->get(['users.name','users.id as followedId','posts.*']);
+    }
+
+    public function addViewers($postId){
+        $addviewer = new PostViewers;
+        $addviewer->user_id = auth()->user()->id;
+        $addviewer->post_id = $postId;
+        $addviewer->save();
     }
 
     public function render()
