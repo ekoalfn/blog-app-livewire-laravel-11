@@ -73,7 +73,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$item->post_title}}</td>
                     <td><img src="/storage/images/{{$item->photo}}" alt="post image" width="60px"></td>
-                    <td>{{$item->content}}</td>
+                    <td>{{str($item->content)->words(10)}}</td>
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->updated_at}}</td>
                     <td>
